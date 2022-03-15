@@ -36,5 +36,20 @@ namespace ValueAndRefTypeTests
             //Assert
             Assert.NotEqual(p1.X, p2.X);
         }
+        [Fact]
+        public void RecordTypeTest()
+        {
+            //Arrange
+            var p1 = new RecordType(4, 5);
+            //p1.X = 10; yapamayýz
+            //Act
+            //deðer tipli karþýlaþtýrma yapar
+            var p2 = new RecordType(4, 5);
+
+
+            
+            Assert.Equal(p1, p2);
+        }
+
     }
 }

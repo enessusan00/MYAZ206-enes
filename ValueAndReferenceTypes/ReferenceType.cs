@@ -1,5 +1,6 @@
 ﻿namespace ValueAndReferenceTypes
 {
+
     public class ReferenceType
     {
         public int X { get; set; }
