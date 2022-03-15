@@ -45,10 +45,43 @@ namespace ValueAndRefTypeTests
             //Act
             //deðer tipli karþýlaþtýrma yapar
             var p2 = new RecordType(4, 5);
-
-
-            
             Assert.Equal(p1, p2);
+        }
+        [Fact]
+        public void SwapByVal()
+        {
+            // arrange
+            int a = 10, b = 20;
+            var valType = new ValueType();
+            //act
+            valType.Swap(a, b);
+            //assert
+            Assert.Equal(10, a);
+            Assert.Equal(20, b);
+        }
+        [Fact]
+        public void SwapByRef()
+        {
+            // arrange
+            int a = 10, b = 20;
+            var valType = new ReferenceType();
+            //act
+            valType.Swap(ref a,ref b);
+            //assert
+            Assert.Equal(20, a);
+            Assert.Equal(10, b);
+
+        }
+        [Fact]
+        public void CheckOutKeyword()
+        {
+            //arrange
+            var valType = new ReferenceType();
+            int b = 40;
+            //act
+            valType.CheckOut(out b);
+            //assert
+            Assert.Equal(100, b);
         }
 
     }
