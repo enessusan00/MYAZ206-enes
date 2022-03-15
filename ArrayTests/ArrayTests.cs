@@ -18,13 +18,27 @@ namespace ArrayTests
             Assert.Equal(deafultSize, array.Length);
         }
         [Fact]
-        public void Chechk_array_with_params()
+        public void Check_array_with_params()
         {
             //arrange|act
             var arr= new Datastructures.Array.Array(1,2,3);
             //assert
             Assert.Equal(3, arr.Length);
         }
-
+        [Fact]
+        public void Get_Set_value_Array()
+        {
+            //arrange
+            var arr = new Datastructures.Array.Array();
+            //act
+            arr.SetValue(10, 0);
+            arr.SetValue(20, 1);
+            arr.SetValue(30, 2);
+            //assert
+            Assert.Equal(10,arr.GetValue(0));
+            Assert.Equal(20, arr.GetValue(1));
+            Assert.Equal(30, arr.GetValue(2));
+            Assert.Null(arr.GetValue(3));
+        }
     }
 }

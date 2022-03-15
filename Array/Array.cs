@@ -15,6 +15,20 @@
         {
             System.Array.Copy(sourceArray,InnerArray,  sourceArray.Length);
         }
+        public Object GetValue(int index)
+        {
+            if (!(index>=0 && index<InnerArray.Length))
+                throw new ArgumentOutOfRangeException("index");
+            return InnerArray[index];
+        }
+        public void SetValue(Object value,int index)
+        {
+            if (!(index >= 0 && index < InnerArray.Length))
+                throw new ArgumentOutOfRangeException();
+            if (value == null)
+                throw new ArgumentNullException();
+            InnerArray[index] = value;
 
+        }
     }
 }
