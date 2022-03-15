@@ -57,6 +57,22 @@ namespace ArrayTests
             }
             Assert.Equal(32, _arrayList.Length);
         }
+        [Fact]
+        public void Foreach_Arraylist()
+        {
+            _arrayList.Add("a");
+            _arrayList.Add("b");
+            _arrayList.Add("c");
+            _arrayList.Add("d");
+            _arrayList.Remove();
+            string s = "";
+            foreach (var item in _arrayList)
+            {
+                s+= item;
+            }
+            Assert.Equal("abc",s);
+
+        }
 
     }
 }

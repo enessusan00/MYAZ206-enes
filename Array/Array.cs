@@ -105,6 +105,11 @@ namespace Datastructures.Array
                 throw new Exception(ex.Message);
             }
         }
+        new public IEnumerator GetEnumerator()
+        {
+            return InnerArray.Take(position).GetEnumerator();
+        }
+
     }
 }
 
