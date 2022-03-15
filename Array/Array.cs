@@ -1,7 +1,9 @@
-﻿namespace Datastructures.Array
+﻿using System.Collections;
+
+namespace Datastructures.Array
 {
 
-    public class Array:ICloneable
+    public class Array:ICloneable,IEnumerable
     {
         private Object[] InnerArray { get; set; }
         public int   Length => InnerArray.Length;
@@ -34,6 +36,11 @@
         public object Clone()
         {
             return MemberwiseClone();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return InnerArray.GetEnumerator();
         }
     }
 }

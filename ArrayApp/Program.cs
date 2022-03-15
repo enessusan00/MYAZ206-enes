@@ -19,6 +19,10 @@ foreach (var item in arr)
     Console.WriteLine(item);
 }
 //Console.WriteLine(arr.GetValue(5)); olmayan bi elemanı isteyemeyiz fixed size
-
+var _arr = new Datastructures.Array.Array(1, 2, 3, 4, 5);
+foreach (var item in _arr)
+{
+    Console.WriteLine(item);
+}
 
 Console.ReadLine();
