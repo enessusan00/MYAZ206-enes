@@ -2,7 +2,6 @@
 
 namespace Datastructures.Array
 {
-
     public class Array:ICloneable,IEnumerable
     {
         private Object[] InnerArray { get; set; }
@@ -41,6 +40,15 @@ namespace Datastructures.Array
         public IEnumerator GetEnumerator()
         {
             return new CustomArrayEnumerator(InnerArray);
+        }
+    }
+    public class ArrayList : Datastructures.Array.Array
+    {
+        private int position;
+        public int Count=> position;
+        public ArrayList(int defaultSize=2):base(defaultSize)
+        {
+            position = 0;
         }
     }
 }
