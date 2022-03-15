@@ -37,7 +37,26 @@ namespace ArrayTests
             }
             Assert.Equal(32,_arrayList.Length);
         }
-            
+        [Theory]
+        [InlineData(32)]
+        [InlineData(64)]
+        [InlineData(128)]
+        [InlineData(256)]
+         public void Array_Remove(int len)
+        {
+            //arrange
+            for (int i = 0; i < len; i++)
+            {
+                _arrayList.Add(i);
+            }
+            Assert.Equal(len,_arrayList.Length);
+            //act
+            for (int i = _arrayList.Length-1; i > 8; i--)
+            {
+                _arrayList.Remove();
+            }
+            Assert.Equal(32, _arrayList.Length);
+        }
 
     }
 }

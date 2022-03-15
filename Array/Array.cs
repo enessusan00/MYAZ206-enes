@@ -79,6 +79,32 @@ namespace Datastructures.Array
                 throw new Exception(ex.Message);
             }
         }
+        public Object Remove()
+        {
+            if (position>0)
+            {
+                var temp = InnerArray[position - 1];
+                position--;
+                if (position == InnerArray.Length / 4)
+                    HalfArray();
+                return temp;
+            }
+            throw new Exception();
+        }
+
+        private void HalfArray()
+        {
+            try
+            {
+                var temp = new Object[InnerArray.Length / 2];
+                System.Array.Copy(InnerArray, temp, InnerArray.Length / 2);
+                InnerArray = temp;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
 
