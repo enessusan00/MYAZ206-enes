@@ -60,5 +60,20 @@ namespace ArrayTests
             }
             Assert.Equal("102031",s);
         }
+
+        [Fact]
+        public void Array_Custom_GetEnumerator()
+        {
+            var arr = new Datastructures.Array.Array(10, 20, 30);
+
+            string s = "";
+            foreach (var item in arr)
+            {
+                s += item;
+            }
+
+            Assert.Equal("102030", s);
+        }
+
     }
 }
