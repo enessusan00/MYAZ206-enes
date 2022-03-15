@@ -17,6 +17,14 @@ namespace ArrayTests
             var array = new Array(deafultSize);
             Assert.Equal(deafultSize, array.Length);
         }
+        [Fact]
+        public void Chechk_array_with_params()
+        {
+            //arrange|act
+            var arr= new Datastructures.Array.Array(1,2,3);
+            //assert
+            Assert.Equal(3, arr.Length);
+        }
 
     }
 }
