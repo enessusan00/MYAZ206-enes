@@ -89,6 +89,15 @@ namespace ArrayTests
             }
             Assert.Equal("12344", s);
         }
+        [Fact]
+        public void Indexof_Test()
+        {
+            _arrayList.Add("a");
+            _arrayList.Add("b" );
+            _arrayList.Add("c");
 
+            var result = _arrayList.IndexOf("c");
+            Assert.Equal(2, result);
+        }
     }
 }
