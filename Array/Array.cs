@@ -12,6 +12,7 @@ namespace Datastructures.Array
             InnerArray = new Object[defaultSize];//fixed sized
 
         }
+       
         public Array(params Object[] sourceArray):this(sourceArray.Length)
         {
             System.Array.Copy(sourceArray,InnerArray,  sourceArray.Length);
@@ -41,75 +42,6 @@ namespace Datastructures.Array
         {
             return new CustomArrayEnumerator(InnerArray);
         }
-    }
-    public class ArrayList : Datastructures.Array.Array
-    {
-        private int position;
-        public int Count=> position;
-        public ArrayList(int defaultSize=2):base(defaultSize)
-        {
-            position = 0;
-        }
-        public void Add(Object value)
-        {
-            if(position==Length)
-            {
-                DoubleArray();
-            }
-            if (position<Length)
-            {
-                InnerArray[position] = value;
-                position++;
-                return;
-            }
-            throw new Exception();
-
-        }
-
-        private void DoubleArray()
-        {
-            try
-            {
-                var temp = new Object[InnerArray.Length*2];
-                System.Array.Copy(InnerArray,temp,InnerArray.Length);
-                InnerArray = temp;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        public Object Remove()
-        {
-            if (position>0)
-            {
-                var temp = InnerArray[position - 1];
-                position--;
-                if (position == InnerArray.Length / 4)
-                    HalfArray();
-                return temp;
-            }
-            throw new Exception();
-        }
-
-        private void HalfArray()
-        {
-            try
-            {
-                var temp = new Object[InnerArray.Length / 2];
-                System.Array.Copy(InnerArray, temp, InnerArray.Length / 2);
-                InnerArray = temp;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        new public IEnumerator GetEnumerator()
-        {
-            return InnerArray.Take(position).GetEnumerator();
-        }
-
     }
 }
 

@@ -73,6 +73,22 @@ namespace ArrayTests
             Assert.Equal("abc",s);
 
         }
+        [Fact]
+        public void ArrayList_Constructor_with_IEnumerable()
+        {
+            var list = new List<int>
+            {
+                1,2,3,4,4
+            };
+            //act
+            var arr = new Datastructures.Array.ArrayList(list);
+            string s = "";
+            foreach (var item in arr)
+            {
+                s += item;
+            }
+            Assert.Equal("12344", s);
+        }
 
     }
 }
