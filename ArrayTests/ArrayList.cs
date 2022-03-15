@@ -9,6 +9,13 @@ namespace ArrayTests
 {
     public class ArrayList
     {
+        private Datastructures.Array.ArrayList _arrayList;
+        public ArrayList()
+        {
+            _arrayList = new Datastructures.Array.ArrayList();
+        }
+
+
         [Theory]
         [InlineData(2)]
         [InlineData(4)]
@@ -20,6 +27,15 @@ namespace ArrayTests
             var arrList=new Datastructures.Array.ArrayList(defaultSize);
             Assert.Equal(defaultSize, arrList.Length);
 
+        }
+        [Fact]
+        public void Array_Add()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                _arrayList.Add(i);
+            }
+            Assert.Equal(32,_arrayList.Length);
         }
             
 

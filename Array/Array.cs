@@ -4,7 +4,7 @@ namespace Datastructures.Array
 {
     public class Array:ICloneable,IEnumerable
     {
-        private Object[] InnerArray { get; set; }
+        protected Object[] InnerArray { get; set; }
         public int   Length => InnerArray.Length;
 
         public Array(int defaultSize=16)
@@ -49,6 +49,35 @@ namespace Datastructures.Array
         public ArrayList(int defaultSize=2):base(defaultSize)
         {
             position = 0;
+        }
+        public void Add(Object value)
+        {
+            if(position==Length)
+            {
+                DoubleArray();
+            }
+            if (position<Length)
+            {
+                InnerArray[position] = value;
+                position++;
+                return;
+            }
+            throw new Exception();
+
+        }
+
+        private void DoubleArray()
+        {
+            try
+            {
+                var temp = new Object[InnerArray.Length*2];
+                System.Array.Copy(InnerArray,temp,InnerArray.Length);
+                InnerArray = temp;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
