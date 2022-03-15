@@ -1,7 +1,7 @@
 ﻿namespace Datastructures.Array
 {
 
-    public class Array
+    public class Array:ICloneable
     {
         private Object[] InnerArray { get; set; }
         public int   Length => InnerArray.Length;
@@ -29,6 +29,11 @@
                 throw new ArgumentNullException();
             InnerArray[index] = value;
 
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
         }
     }
 }

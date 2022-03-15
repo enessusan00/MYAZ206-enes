@@ -40,5 +40,13 @@ namespace ArrayTests
             Assert.Equal(30, arr.GetValue(2));
             Assert.Null(arr.GetValue(3));
         }
+        [Fact]
+        public void Array_Clone()
+        {
+            var arr = new Datastructures.Array.Array(1, 2, 3, 4, 5, 6);
+            var clone = arr.Clone() as Datastructures.Array.Array;
+            Assert.Equal(arr.Length, clone.Length);
+            Assert.NotEqual(arr.GetHashCode(), clone.GetHashCode());
+        }
     }
 }
