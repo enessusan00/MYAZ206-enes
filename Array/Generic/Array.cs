@@ -46,7 +46,7 @@ namespace Array.Generic
             return MemberwiseClone();
         }
 
-        public IEnumerator GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return new CustomArrayEnumerator(InnerArray);
         }
